@@ -1,0 +1,88 @@
+{
+    "name": "test-network",
+    "version": "1.0.0",
+    "client": {
+        "tlsEnable": true,
+        "adminCredential": {
+            "id": "exploreradmin",
+            "password": "exploreradminpw"
+        },
+        "enableAuthentication": true,
+        "organization": "Org1MSP",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                },
+                "orderer": "300"
+            }
+        }
+    },
+    "channels": {
+        "mychannel": {
+            "peers": {
+                "peer0.org1.example.com": {},
+                "peer0.org2.example.com": {},
+                "peer0.org3.example.com": {}
+            }
+        }
+    },
+    "organizations": {
+        "Org1MSP": {
+            "mspid": "Org1MSP",
+            "adminPrivateKey": {
+                "path": "/tmp/crypto/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/e7a474185e953e6c4f36ca2d945f763198e66e145687cd7288b5f0834cbb9fd2_sk"
+            },
+            "peers": [
+                "peer0.org1.example.com"
+            ],
+            "signedCert": {
+                "path": "/tmp/crypto/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/cert.pem"
+            }
+        },
+        "Org2MSP": {
+            "mspid": "Org2MSP",
+            "adminPrivateKey": {
+                "path": "/tmp/crypto/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/keystore/e56ccf919de09918a8462efd9797a26c2840dd0d5c1ea62060e938e9bcaa319d_sk"
+            },
+            "peers": [
+                "peer0.org2.example.com"
+            ],
+            "signedCert": {
+                "path": "/tmp/crypto/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/signcerts/cert.pem"
+            }
+        },
+        "Org3MSP": {
+            "mspid": "Org3MSP",
+            "adminPrivateKey": {
+                "path": "/tmp/crypto/peerOrganizations/org3.example.com/users/User1@org3.example.com/msp/keystore/6bf11df300fe3c7581a82cb428e30a03c18a9077b6ebb2188736517d97f5c5fd_sk"
+            },
+            "peers": [
+                "peer0.org3.example.com"
+            ],
+            "signedCert": {
+                "path": "/tmp/crypto/peerOrganizations/org3.example.com/users/User1@org3.example.com/msp/signcerts/cert.pem"
+            }
+        }
+    },
+    "peers": {
+        "peer0.org1.example.com": {
+            "tlsCACerts": {
+                "path": "/tmp/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+            },
+            "url": "grpcs://peer0.org1.example.com:7051"
+        },
+        "peer0.org2.example.com": {
+            "tlsCACerts": {
+                "path": "/tmp/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt"
+            },
+            "url": "grpcs://peer0.org2.example.com:9051"
+        },
+        "peer0.org3.example.com": {
+            "tlsCACerts": {
+                "path": "/tmp/crypto/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt"
+            },
+            "url": "grpcs://peer0.org3.example.com:11051"
+        }
+    }
+}
